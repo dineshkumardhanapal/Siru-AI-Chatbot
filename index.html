@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Are Coming Soon</title>
+    <!-- Use Poppins font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 25px;
+            height: 25px;
+            background-color: #ff4d4f; /* Red circle */
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .contact-info span {
+            display: block;
+            color: #a0a0a0; /* Grey text */
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Main content styling */
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 100px 60px;
+        }
+
+        .left-content {
+            flex: 2;
+            max-width: 60%;
+        }
+
+        .left-content h1 {
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        .right-content {
+            flex: 1;
+            max-width: 30%;
+            align-self: flex-end;
+        }
+
+        .right-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #a0a0a0;
+            max-width: 400px;
+        }
+
+        /* Countdown timer styling */
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            color: #ffffff;
+        }
+
+        .timer-box {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .timer-box .value {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .timer-box .label {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #a0a0a0;
+            margin-top: 5px;
+        }
+
+        .separator {
+            font-size: 48px;
+            font-weight: 700;
+            margin-right: 20px;
+            color: #ffffff;
+        }
+
+        /* Responsive design for tablets and smaller screens */
+        @media (max-width: 1024px) {
+            .header, .main-container {
+                padding: 20px 30px;
+            }
+            .left-content h1 {
+                font-size: 60px;
+            }
+            .timer-box .value, .separator {
+                font-size: 36px;
+            }
+        }
+
+        /* Responsive design for mobile screens */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding-top: 50px;
+            }
+            .left-content {
+                max-width: 100%;
+            }
+            .right-content {
+                max-width: 100%;
+                margin-top: 40px;
+                align-self: flex-start;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-info {
+                margin-top: 15px;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-content h1 {
+                font-size: 40px;
+            }
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            .timer-box, .separator {
+                font-size: 28px;
+                margin-right: 10px;
+            }
+            .timer-box .label {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-icon"></div>
+            <span class="logo-text">Logo</span>
+        </div>
+        <div class="contact-info">
+            <span>Say hello!</span>
+            <a href="mailto:deepweblearners@gmail.com">info@website.com</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="left-content">
+            <h1>We Are<br>Coming Soon</h1>
+            <div class="countdown-timer">
+                <div class="timer-box">
+                    <span id="days" class="value">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="timer-box">
+                    <span id="hours" class="value">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="timer-box">
+                    <span id="minutes" class="value">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="timer-box">
+                    <span id="seconds" class="value">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+        <div class="right-content">
+            <p>We're strong believers that the best solutions come from gathering new insights and pushing conventional boundaries.</p>
+        </div>
+    </main>
+
+    <script>
+        // Set the date we're counting down to
+        // You can change this to your desired launch date and time
+        const countdownDate = new Date("May 01, 2026 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const countdownInterval = setInterval(function() {
+
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the corresponding elements, adding a leading zero if needed
+            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+            // If the countdown is finished, stop the timer and display a message
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-timer").innerHTML = "<h2>We Are Live!</h2>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
